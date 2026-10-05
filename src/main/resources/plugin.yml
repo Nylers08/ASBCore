@@ -1,0 +1,6 @@
+name: ASBCore
+version: '${version}'
+
+main: ariol.nylers.asbcore.ASBCore
+api-version: '26.2'
+load: POSTWORLD
