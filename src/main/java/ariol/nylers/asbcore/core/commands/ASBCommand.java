@@ -1,9 +1,8 @@
 package ariol.nylers.asbcore.core.commands;
 
-import ariol.nylers.asbcore.core.playerIsland.services.clipboardPlacer.ClipboardPlacer;
+import ariol.nylers.asbcore.core.playerIsland.services.clipboard.ClipboardPlacer;
 import ariol.nylers.asbcore.core.playerIsland.services.posResolver.IslandPosResolver;
 import ariol.nylers.asbcore.core.playerIsland.services.posResolver.PosResolverByPlayer;
-import ariol.nylers.asbcore.core.playerIsland.services.posResolver.TestIslandPosResolver;
 import ariol.nylers.asbcore.core.pos.IslandLocalLocation;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
