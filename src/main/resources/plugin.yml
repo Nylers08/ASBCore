@@ -4,3 +4,14 @@ version: '${version}'
 main: ariol.nylers.asbcore.ASBCore
 api-version: '26.2'
 load: POSTWORLD
+
+depend:
+  - FastAsyncWorldEdit
+  - NGui
+
+commands:
+  isop:
+    usage: /isop
+    description: Админские штучки-дрючки
+    permission-message: У вас нет прав!
+    permission: isop.usage

@@ -17,7 +17,7 @@ public class IslandLocalLocation {
     @Getter private double worldZ;
 
 
-    public IslandLocalLocation(@NonNull Location origin, double localX, double localY, double localZ){
+    public IslandLocalLocation(Location origin, double localX, double localY, double localZ){
         this.origin = origin;
 
         setLocalXYZ(localX, localY ,localZ);
