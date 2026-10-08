@@ -1,9 +1,7 @@
 package ariol.nylers.asbcore.core.commands;
 
-import ariol.nylers.asbcore.core.playerIsland.services.clipboard.ClipboardPlacer;
-import ariol.nylers.asbcore.core.playerIsland.services.posResolver.IslandPosResolver;
-import ariol.nylers.asbcore.core.playerIsland.services.posResolver.PosResolverByPlayer;
-import ariol.nylers.asbcore.core.pos.IslandLocalLocation;
+import ariol.nylers.asbcore.ServiceController;
+import ariol.nylers.asbcore.core.island.services.profile.cache.MetaProfileInit;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
@@ -21,27 +19,18 @@ import java.nio.file.Files;
 
 public class ASBCommand implements CommandExecutor {
 
+    private final ServiceController serviceController;
+
+    public ASBCommand(ServiceController serviceController) {
+        this.serviceController = serviceController;
+    }
+
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
 
         Player player = (Player) sender;
-        String schemName = "test";
-        if(args.length>0){
-            schemName = args[0];
-        }
-        String fileName = schemName+".schem";
-        try {
-            Clipboard clipboard = loadClipboard(new File("F:\\Neris\\servers\\hub\\plugins\\FastAsyncWorldEdit\\schematics\\"+fileName));
-            IslandPosResolver posResolver = new PosResolverByPlayer(player.getUniqueId());
-            IslandLocalLocation localLocation = posResolver.resolve();
-            ClipboardPlacer placer = new ClipboardPlacer();
-
-            placer.place(localLocation.getWorldLocation(), clipboard)
-                    .thenRun(()->player.sendMessage("Завершили вставку"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        MetaProfileInit metaProfileInit = serviceController.getProfileCacheServiceController().getMetaProfileInit();
+        metaProfileInit.init(player.getUniqueId());
 
         return true;
     }

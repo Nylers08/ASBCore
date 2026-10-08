@@ -5,12 +5,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ASBCore extends JavaPlugin {
 
+    private ServiceController serviceController;
+
     @Override
     public void onEnable() {
-
         // Plugin startup logic
 
-        getCommand("isop").setExecutor(new ASBCommand());
+        serviceController = new ServiceController();
+
+        getCommand("isop").setExecutor(new ASBCommand(serviceController));
     }
 
     @Override
