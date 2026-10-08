@@ -65,4 +65,8 @@ public class Membership {
     public Member getMember(MemberId memberId){
         return members.get(memberId);
     }
+
+    public Collection<Member> getMembers(){
+        return members.values();
+    }
 }

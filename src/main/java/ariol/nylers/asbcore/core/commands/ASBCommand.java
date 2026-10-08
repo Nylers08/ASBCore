@@ -1,7 +1,7 @@
 package ariol.nylers.asbcore.core.commands;
 
 import ariol.nylers.asbcore.ServiceController;
-import ariol.nylers.asbcore.core.island.services.profile.cache.MetaProfileInit;
+import ariol.nylers.asbcore.core.profile.loaders.MetaProfileInit;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
@@ -29,7 +29,7 @@ public class ASBCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
 
         Player player = (Player) sender;
-        MetaProfileInit metaProfileInit = serviceController.getProfileCacheServiceController().getMetaProfileInit();
+        MetaProfileInit metaProfileInit = serviceController.getProfileModule().getMetaProfileInit();
         metaProfileInit.init(player.getUniqueId());
 
         return true;

@@ -7,13 +7,13 @@ import java.util.Map;
 
 public enum MemberPerms {
 
-    BUILD("BU"),
-    BREAK("BR"),
-    OPEN("O"),
+    BLOCK_PLACE("BU"),
+    BLOCK_BREAK("BR"),
+    CHEST_ACCESS("O"),
     KICK("K"),
     INVITE("I"),
-    MOB_KILL("MK"),
-    PLAYER_KILL("PK"),
+    MOB_DAMAGE("MK"),
+    PLAYER_DAMAGE("PK"),
     REDSTONE_USE("RU"),
     ITEM_USE("IU"),
     ITEM_DROP("ID"),

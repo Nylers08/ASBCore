@@ -1,9 +1,12 @@
 package ariol.nylers.asbcore;
 
-import ariol.nylers.asbcore.core.island.services.profile.ProfileCacheServiceController;
+import ariol.nylers.asbcore.core.profile.ProfileModule;
+import ariol.nylers.asbcore.core.island.services.region.MemberPermParser;
 import lombok.Getter;
 
 public class ServiceController {
 
-    @Getter private final ProfileCacheServiceController profileCacheServiceController = new ProfileCacheServiceController();
+    @Getter private final ProfileModule profileModule = new ProfileModule();
+    @Getter private final MemberPermParser memberPermParser = new MemberPermParser();
+
 }

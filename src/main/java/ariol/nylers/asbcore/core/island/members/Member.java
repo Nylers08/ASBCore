@@ -1,6 +1,6 @@
 package ariol.nylers.asbcore.core.island.members;
 
-import ariol.nylers.asbcore.core.island.profile.ProfileId;
+import ariol.nylers.asbcore.core.profile.ProfileId;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
