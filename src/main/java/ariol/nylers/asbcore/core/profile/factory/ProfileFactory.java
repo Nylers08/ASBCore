@@ -1,4 +1,4 @@
-package ariol.nylers.asbcore.core.profile.services;
+package ariol.nylers.asbcore.core.profile.factory;
 
 import ariol.nylers.asbcore.core.profile.Profile;
 

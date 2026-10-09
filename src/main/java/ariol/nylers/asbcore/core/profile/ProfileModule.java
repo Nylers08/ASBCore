@@ -4,18 +4,18 @@ import ariol.nylers.asbcore.core.profile.controller.MetaProfileCacheController;
 import ariol.nylers.asbcore.core.profile.controller.ProfileCacheController;
 import ariol.nylers.asbcore.core.profile.db.EmptySelectedMetaProfileLoader;
 import ariol.nylers.asbcore.core.profile.db.EmptySelectedProfileSaver;
-import ariol.nylers.asbcore.core.profile.provider.MetaProfileProvider;
-import ariol.nylers.asbcore.core.profile.services.BaseProfileCacheFacadeFactory;
+import ariol.nylers.asbcore.core.profile.services.MetaProfileProvider;
+import ariol.nylers.asbcore.core.profile.factory.BaseProfileCacheFacadeFactory;
 import ariol.nylers.asbcore.core.profile.db.EmptyMetaProfileRepository;
 import ariol.nylers.asbcore.core.profile.db.EmptyProfileRepository;
 import ariol.nylers.asbcore.core.profile.db.MetaProfileRepository;
 import ariol.nylers.asbcore.core.profile.db.ProfileRepository;
-import ariol.nylers.asbcore.core.profile.loaders.MetaProfileInit;
-import ariol.nylers.asbcore.core.profile.loaders.MetaProfilesCacheLoader;
-import ariol.nylers.asbcore.core.profile.services.ProfileCaches;
+import ariol.nylers.asbcore.core.profile.services.MetaProfileInit;
+import ariol.nylers.asbcore.core.profile.services.MetaProfilesCacheLoader;
+import ariol.nylers.asbcore.core.profile.modules.ProfileCaches;
 import ariol.nylers.asbcore.core.profile.services.SelectedMetaProfileLoader;
 import ariol.nylers.asbcore.core.profile.services.ProfileCreator;
-import ariol.nylers.asbcore.core.profile.services.TempProfileFactory;
+import ariol.nylers.asbcore.core.profile.factory.TempProfileFactory;
 import lombok.Getter;
 
 public class ProfileModule {

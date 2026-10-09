@@ -1,4 +1,4 @@
-package ariol.nylers.asbcore.core.profile.services;
+package ariol.nylers.asbcore.core.profile.modules;
 
 import ariol.nylers.asbcore.core.profile.cache.MetaProfileCache;
 import ariol.nylers.asbcore.core.profile.cache.PlayerMetaProfileCache;

@@ -3,6 +3,7 @@ package ariol.nylers.asbcore.core.profile.services;
 import ariol.nylers.asbcore.core.profile.Profile;
 import ariol.nylers.asbcore.core.profile.controller.ProfileCacheController;
 import ariol.nylers.asbcore.core.profile.db.ProfileRepository;
+import ariol.nylers.asbcore.core.profile.factory.ProfileFactory;
 
 import java.util.UUID;
 

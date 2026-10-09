@@ -1,4 +1,4 @@
-package ariol.nylers.asbcore.core.profile.loaders;
+package ariol.nylers.asbcore.core.profile.services;
 
 import ariol.nylers.asbcore.core.profile.MetaProfile;
 import ariol.nylers.asbcore.core.profile.controller.MetaProfileCacheController;

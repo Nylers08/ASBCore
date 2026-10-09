@@ -1,4 +1,4 @@
-package ariol.nylers.asbcore.core.profile.services;
+package ariol.nylers.asbcore.core.profile.factory;
 
 import ariol.nylers.asbcore.core.exception.ASBPlayerOffline;
 import ariol.nylers.asbcore.core.island.playerIsland.PlayerIsland;
@@ -19,7 +19,7 @@ public class TempProfileFactory implements ProfileFactory<UUID>{
         MetaProfile metaData = new MetaProfile(
                 ProfileId.randomId(),
                 playerId,
-                "test",
+                "src/main/test",
                 Duration.ZERO,
                 0
         );

@@ -1,6 +1,7 @@
 package ariol.nylers.asbcore.core.profile.services;
 
 import ariol.nylers.asbcore.core.profile.MetaProfile;
+import ariol.nylers.asbcore.core.profile.modules.ProfileCaches;
 import ariol.nylers.asbcore.db.DBLoader;
 import ariol.nylers.asbcore.db.DBSaver;
 
@@ -21,7 +22,7 @@ public class SelectedMetaProfileLoader {
         this.selectedMetaProfileSaver = selectedMetaProfileSaver;
     }
 
-    public void selectMetaProfile(UUID playerId){
+    public void loadSelectedMetaProfile(UUID playerId){
         Optional<MetaProfile> selectedMetaProfile = selectedMetaProfileLoader.load(playerId);
         MetaProfile metaProfile = selectedMetaProfile.orElseGet(() -> getFirstMetaProfile(playerId));
         cacheFacade.selectedMetaProfileRegistry().selectProfile(playerId, metaProfile);

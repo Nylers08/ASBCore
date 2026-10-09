@@ -19,8 +19,12 @@ public class IslandLocalLocation {
 
     public IslandLocalLocation(Location origin, double localX, double localY, double localZ){
         this.origin = origin;
-
         setLocalXYZ(localX, localY ,localZ);
+    }
+
+    public IslandLocalLocation(double localX, double localY, double localZ){
+        this.origin = new Location(null, 0, 0, 0);
+        setLocalXYZ(localX,localY,localZ);
     }
 
 

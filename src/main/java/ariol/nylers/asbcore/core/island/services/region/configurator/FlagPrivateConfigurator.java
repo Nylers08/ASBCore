@@ -1,41 +1,31 @@
-package ariol.nylers.asbcore.core.island.services.region;
+package ariol.nylers.asbcore.core.island.services.region.configurator;
 
 import ariol.nylers.asbcore.core.island.members.Member;
 import ariol.nylers.asbcore.core.island.members.Membership;
-import ariol.nylers.asbcore.core.island.region.IslandRegion;
 import ariol.nylers.asbcore.core.profile.ProfileId;
-import ariol.nylers.asbcore.core.profile.provider.MetaProfileProvider;
-import ariol.nylers.asbcore.core.utils.adapters.WorldEditAdapter;
-import ariol.nylers.asbcore.core.utils.worldGuard.ProtectedRegionUtils;
+import ariol.nylers.asbcore.core.profile.services.MetaProfileProvider;
 import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.flags.Flags;
 import com.sk89q.worldguard.protection.flags.RegionGroup;
 import com.sk89q.worldguard.protection.flags.StateFlag;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import org.bukkit.World;
 
 import java.util.Optional;
 import java.util.UUID;
 
-public class RegionPlacer {
+public class FlagPrivateConfigurator implements PrivateConfigurator<RegionWithMembership> {
 
     private final MetaProfileProvider metaProfileProvider;
 
-
-    public RegionPlacer(MetaProfileProvider metaProfileProvider) {
+    public FlagPrivateConfigurator(MetaProfileProvider metaProfileProvider) {
         this.metaProfileProvider = metaProfileProvider;
     }
 
 
-    public void place(IslandRegion region, World world, Membership membership){
-        ProtectedRegion protectedRegion = WorldEditAdapter.adapt(region);
-        configure(protectedRegion, membership);
-        ProtectedRegionUtils.register(protectedRegion, world);
-    }
-
-    private void configure(ProtectedRegion region, Membership membership){
-        addMembers(region, membership);
-        configureFlags(region);
+    @Override
+    public void configure(RegionWithMembership regionWithMembership) {
+        addMembers(regionWithMembership.region(), regionWithMembership.membership());
+        configureFlags(regionWithMembership.region());
     }
 
     private void addMembers(ProtectedRegion region, Membership membership){
@@ -65,5 +55,4 @@ public class RegionPlacer {
         region.setFlag(Flags.BLOCK_BREAK, StateFlag.State.ALLOW);
         region.setFlag(Flags.BLOCK_BREAK.getRegionGroupFlag(), RegionGroup.MEMBERS);
     }
-
 }
