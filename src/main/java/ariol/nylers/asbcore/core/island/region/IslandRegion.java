@@ -9,23 +9,23 @@ import java.util.UUID;
 public class IslandRegion {
 
     @Getter private final UUID uuid;
-    @Getter private IslandLocalLocation minPos;
-    @Getter private IslandLocalLocation maxPos;
+    @Getter private IslandLocalLocation minLocalPos;
+    @Getter private IslandLocalLocation maxLocalPos;
 
-    public IslandRegion(IslandLocalLocation minPos, IslandLocalLocation maxPos){
+    public IslandRegion(IslandLocalLocation minLocalPos, IslandLocalLocation maxLocalPos){
         this.uuid = UUID.randomUUID();
-        this.minPos = minPos;
-        this.maxPos = maxPos;
+        this.minLocalPos = minLocalPos;
+        this.maxLocalPos = maxLocalPos;
     }
 
-    public IslandRegion(UUID uuid, IslandLocalLocation minPos, IslandLocalLocation maxPos){
+    public IslandRegion(UUID uuid, IslandLocalLocation minLocalPos, IslandLocalLocation maxLocalPos){
         this.uuid = uuid;
-        this.minPos = minPos;
-        this.maxPos = maxPos;
+        this.minLocalPos = minLocalPos;
+        this.maxLocalPos = maxLocalPos;
     }
 
     public void setOrigin(Location origin){
-        minPos.setOrigin(origin);
-        maxPos.setOrigin(origin);
+        minLocalPos.setOrigin(origin);
+        maxLocalPos.setOrigin(origin);
     }
 }

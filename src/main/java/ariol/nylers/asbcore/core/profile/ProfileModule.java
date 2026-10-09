@@ -4,6 +4,7 @@ import ariol.nylers.asbcore.core.profile.controller.MetaProfileCacheController;
 import ariol.nylers.asbcore.core.profile.controller.ProfileCacheController;
 import ariol.nylers.asbcore.core.profile.db.EmptySelectedMetaProfileLoader;
 import ariol.nylers.asbcore.core.profile.db.EmptySelectedProfileSaver;
+import ariol.nylers.asbcore.core.profile.provider.MetaProfileProvider;
 import ariol.nylers.asbcore.core.profile.services.BaseProfileCacheFacadeFactory;
 import ariol.nylers.asbcore.core.profile.db.EmptyMetaProfileRepository;
 import ariol.nylers.asbcore.core.profile.db.EmptyProfileRepository;
@@ -18,6 +19,7 @@ import ariol.nylers.asbcore.core.profile.services.TempProfileFactory;
 import lombok.Getter;
 
 public class ProfileModule {
+
 
     @Getter private final MetaProfileRepository metaProfileRepository = new EmptyMetaProfileRepository();
     @Getter private final ProfileRepository profileRepository = new EmptyProfileRepository();
@@ -49,5 +51,10 @@ public class ProfileModule {
             cacheLoader,
             profileCreator,
             selector
+    );
+
+    @Getter private final MetaProfileProvider metaProfileProvider = new MetaProfileProvider(
+            metaProfileCacheController,
+            metaProfileRepository
     );
 }

@@ -1,11 +1,14 @@
 package ariol.nylers.asbcore.core.profile.controller;
 
 import ariol.nylers.asbcore.core.profile.MetaProfile;
+import ariol.nylers.asbcore.core.profile.ProfileId;
 import ariol.nylers.asbcore.core.profile.cache.MetaProfileCache;
 import ariol.nylers.asbcore.core.profile.cache.PlayerMetaProfileCache;
 import ariol.nylers.asbcore.core.profile.cache.SelectedMetaProfileRegistry;
 
 import java.util.Collection;
+import java.util.Set;
+import java.util.UUID;
 
 public class MetaProfileCacheController {
 
@@ -51,5 +54,22 @@ public class MetaProfileCacheController {
 
     public void remove(Collection<MetaProfile> profiles){
         profiles.forEach(this::remove);
+    }
+
+
+    public MetaProfile getMetaProfile(ProfileId profileId){
+        return metaProfileCache.get(profileId);
+    }
+
+    public MetaProfile getSelectedMetaProfile(UUID playerId){
+        return selectedMetaProfileRegistry.getSelectedProfileMetaData(playerId);
+    }
+
+    public UUID getPlayerId(ProfileId profileId){
+        return metaProfileCache.get(profileId).getPlayerUuid();
+    }
+
+    public Set<MetaProfile> getAllMetaProfiles(UUID playerId){
+        return playerMetaProfileCache.getKeys(playerId);
     }
 }

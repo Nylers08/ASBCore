@@ -14,7 +14,17 @@ public class EmptyMetaProfileRepository implements MetaProfileRepository{
     }
 
     @Override
+    public Optional<MetaProfile> findSelectedByPlayer(UUID playerId) {
+        return Optional.empty();
+    }
+
+    @Override
     public Optional<Set<MetaProfile>> findByPlayer(UUID playerId) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<UUID> findPlayer(ProfileId profileId) {
         return Optional.empty();
     }
 

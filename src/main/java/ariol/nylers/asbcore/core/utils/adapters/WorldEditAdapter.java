@@ -19,8 +19,8 @@ public class WorldEditAdapter {
 
     public static ProtectedRegion adapt(IslandRegion region){
         String regionId = region.getUuid().toString();
-        BlockVector3 minPos = adaptByWorldCord(region.getMinPos());
-        BlockVector3 maxPos = adaptByLocalCord(region.getMaxPos());
+        BlockVector3 minPos = adaptByWorldCord(region.getMinLocalPos());
+        BlockVector3 maxPos = adaptByWorldCord(region.getMaxLocalPos());
         return new ProtectedCuboidRegion(regionId, minPos, maxPos);
     }
 }

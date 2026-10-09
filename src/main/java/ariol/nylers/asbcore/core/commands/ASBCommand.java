@@ -1,11 +1,18 @@
 package ariol.nylers.asbcore.core.commands;
 
 import ariol.nylers.asbcore.ServiceController;
+import ariol.nylers.asbcore.core.island.members.Member;
+import ariol.nylers.asbcore.core.island.members.MemberRole;
+import ariol.nylers.asbcore.core.island.members.Membership;
+import ariol.nylers.asbcore.core.island.region.IslandRegion;
+import ariol.nylers.asbcore.core.pos.IslandLocalLocation;
+import ariol.nylers.asbcore.core.profile.ProfileId;
 import ariol.nylers.asbcore.core.profile.loaders.MetaProfileInit;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardReader;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -29,8 +36,19 @@ public class ASBCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
 
         Player player = (Player) sender;
-        MetaProfileInit metaProfileInit = serviceController.getProfileModule().getMetaProfileInit();
-        metaProfileInit.init(player.getUniqueId());
+
+        serviceController.getProfileModule().getMetaProfileInit().init(player.getUniqueId());
+        ProfileId profileId = serviceController.getProfileModule().getProfileCaches().selectedMetaProfileRegistry().getSelectedProfileMetaData(player.getUniqueId()).getProfileId();
+
+        Location origin = player.getLocation();
+        IslandLocalLocation minPos = new IslandLocalLocation(origin, -10, -10, -10);
+        IslandLocalLocation maxPos = new IslandLocalLocation(origin, 10, 10, 10);
+        IslandRegion region = new IslandRegion(minPos, maxPos);
+
+        Member member = new Member(profileId, MemberRole.MEMBER);
+        Membership membership = new Membership(member);
+
+        serviceController.getRegionPlacer().place(region, player.getWorld(), membership);
 
         return true;
     }

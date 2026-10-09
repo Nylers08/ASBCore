@@ -2,31 +2,63 @@ package ariol.nylers.asbcore.core.profile.provider;
 
 import ariol.nylers.asbcore.core.profile.MetaProfile;
 import ariol.nylers.asbcore.core.profile.ProfileId;
-import ariol.nylers.asbcore.core.profile.cache.PlayerMetaProfileCache;
+import ariol.nylers.asbcore.core.profile.controller.MetaProfileCacheController;
 import ariol.nylers.asbcore.core.profile.db.MetaProfileRepository;
 
+import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 public class MetaProfileProvider {
 
-    private final PlayerMetaProfileCache playerMetaProfileCache;
-    private final MetaProfileRepository metaProfileRepository;
+    private final MetaProfileCacheController cacheController;
+    private final MetaProfileRepository repository;
 
-    public MetaProfileProvider(PlayerMetaProfileCache playerMetaProfileCache, MetaProfileRepository metaProfileRepository) {
-        this.playerMetaProfileCache = playerMetaProfileCache;
-        this.metaProfileRepository = metaProfileRepository;
+    public MetaProfileProvider(MetaProfileCacheController cacheController, MetaProfileRepository repository) {
+        this.cacheController = cacheController;
+        this.repository = repository;
     }
 
-    public MetaProfile getMetaProfile(ProfileId profileId){
-        return null;
+    public Optional<MetaProfile> getMetaProfile(ProfileId profileId){
+        MetaProfile metaProfile = cacheController.getMetaProfile(profileId);
+        if(metaProfile != null){
+            return Optional.of(metaProfile);
+        }
+
+        Optional<MetaProfile> optMetaProfile = repository.find(profileId);
+        optMetaProfile.ifPresent(cacheController::cache);
+        return optMetaProfile;
     }
 
-    public MetaProfile getMetaProfile(UUID playerId){
-        return null;
+    public Optional<MetaProfile> getMetaProfile(UUID playerId){
+        MetaProfile metaProfile = cacheController.getSelectedMetaProfile(playerId);
+        if(metaProfile != null){
+            return Optional.of(metaProfile);
+        }
+
+        Optional<MetaProfile> optMetaProfile = repository.findSelectedByPlayer(playerId);;
+        optMetaProfile.ifPresent(cacheController::cache);
+        return optMetaProfile;
     }
 
-    public UUID getPlayerId(ProfileId profileId){
-        return null;
+    public Optional<Set<MetaProfile>> getMetaProfiles(UUID playerId){
+        Set<MetaProfile> metaProfiles = cacheController.getAllMetaProfiles(playerId);
+        if(metaProfiles != null){
+            return Optional.of(metaProfiles);
+        }
+
+        Optional<Set<MetaProfile>> optMetaProfiles = repository.findByPlayer(playerId);
+        optMetaProfiles.ifPresent(cacheController::cacheAll);
+        return repository.findByPlayer(playerId);
+    }
+
+    public Optional<UUID> getPlayerId(ProfileId profileId){
+        UUID playerId = cacheController.getPlayerId(profileId);
+        if(playerId != null) {
+            return Optional.of(playerId);
+        }
+
+        return repository.findPlayer(profileId);
     }
 
 
