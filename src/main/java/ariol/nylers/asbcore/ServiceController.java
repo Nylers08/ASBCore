@@ -24,4 +24,10 @@ public class ServiceController {
             new ConfiguredRegionPlacer(islandRegionPlacer, privateConfigurator);
     @Getter private final IslandPlacer islandPlacer = new IslandPlacer(clipboardPlacer, configPrivatePlacer);
 
+
+    @Getter private final io.neris.NGui.core.services.ServiceController menuController;
+
+    public ServiceController(io.neris.NGui.core.services.ServiceController menuController) {
+        this.menuController = menuController;
+    }
 }
