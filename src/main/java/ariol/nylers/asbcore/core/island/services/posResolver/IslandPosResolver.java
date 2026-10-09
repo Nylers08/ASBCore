@@ -1,8 +1,8 @@
 package ariol.nylers.asbcore.core.island.services.posResolver;
 
-import ariol.nylers.asbcore.core.pos.IslandLocalLocation;
+import org.bukkit.Location;
 
-public interface IslandPosResolver {
+public interface IslandPosResolver<Context> {
 
-    IslandLocalLocation resolve();
+    Location resolve(Context context);
 }

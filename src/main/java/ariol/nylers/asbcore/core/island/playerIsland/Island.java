@@ -5,6 +5,7 @@ import ariol.nylers.asbcore.core.island.region.IslandRegion;
 import ariol.nylers.asbcore.core.pos.IslandLocalLocation;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import lombok.Getter;
+import org.bukkit.World;
 
 public class Island {
 
@@ -21,24 +22,24 @@ public class Island {
     private Membership membership;
 
     @Getter
-    private IslandLocalLocation homeLocation;
+    private World world;
 
 
     public Island(){}
 
-    public Island(Clipboard clipboard, IslandRegion region, Membership membership, IslandLocalLocation homeLocation){
+    public Island(Clipboard clipboard, IslandRegion region, Membership membership, World world){
         this.islandId = IslandId.generateIslandId();
         this.clipboard = clipboard;
         this.region = region;
         this.membership = membership;
-        this.homeLocation = homeLocation;
+        this.world = world;
     }
 
-    public Island(IslandId islandId, Clipboard clipboard, IslandRegion region, Membership membership, IslandLocalLocation homeLocation){
+    public Island(IslandId islandId, Clipboard clipboard, IslandRegion region, Membership membership, World world){
         this.islandId = islandId;
         this.clipboard = clipboard;
         this.region = region;
         this.membership = membership;
-        this.homeLocation = homeLocation;
+        this.world = world;
     }
 }

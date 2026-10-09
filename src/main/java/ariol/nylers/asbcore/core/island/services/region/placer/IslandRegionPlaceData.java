@@ -4,8 +4,7 @@ import ariol.nylers.asbcore.core.island.region.IslandRegion;
 import org.bukkit.Location;
 
 public record IslandRegionPlaceData(
-        Location center,
-        IslandRegion islandRegion
+        IslandRegion islandRegion, Location center
 ) {
 
 

@@ -6,9 +6,6 @@ import ariol.nylers.asbcore.core.island.members.MemberRole;
 import ariol.nylers.asbcore.core.island.members.Membership;
 import ariol.nylers.asbcore.core.island.playerIsland.Island;
 import ariol.nylers.asbcore.core.island.region.IslandRegion;
-import ariol.nylers.asbcore.core.island.services.island.IslandPlacer;
-import ariol.nylers.asbcore.core.island.services.region.placer.IslandRegionPlaceData;
-import ariol.nylers.asbcore.core.island.services.region.placer.IslandRegionPlacementContext;
 import ariol.nylers.asbcore.core.pos.IslandLocalLocation;
 import ariol.nylers.asbcore.core.profile.ProfileId;
 import ariol.nylers.asbcore.core.profile.ProfileModule;
@@ -65,9 +62,9 @@ public class ASBCommand implements CommandExecutor {
             throw new RuntimeException(e);
         }
 
-        Island island = new Island(clipboard, region, membership, new IslandLocalLocation(0,0,0));
+        Island island = new Island(clipboard, region, membership, origin.getWorld());
 
-        serviceController.getIslandPlacer().place(island, origin);
+        serviceController.getIslandPlacer().place(island);
 
         return true;
     }

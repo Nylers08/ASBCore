@@ -16,12 +16,12 @@ public final class ASBCore extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
 
-        Plugin plugin = Bukkit.getPluginManager().getPlugin("NGui");
-        if(plugin instanceof NGui nguiInstance){
-            nGui = nguiInstance;
-        }
+//        Plugin plugin = Bukkit.getPluginManager().getPlugin("NGui");
+//        if(plugin instanceof NGui nguiInstance){
+//            nGui = nguiInstance;
+//        }
 
-        serviceController = new ServiceController(nGui.getServiceController());
+        serviceController = new ServiceController();
 
 
         getCommand("isop").setExecutor(new ASBCommand(serviceController));
