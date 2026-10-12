@@ -1,4 +1,4 @@
-package ariol.nylers.asbcore.core.playerIsland.services.playerIsland;
+package ariol.nylers.asbcore.core.playerIsland.services.playerIsland.placer;
 
 import ariol.nylers.asbcore.core.playerIsland.pojo.IslandOwnership;
 import ariol.nylers.asbcore.core.playerIsland.pojo.PlayerIsland;

@@ -11,7 +11,7 @@ public class Island {
     private final IslandId islandId;
 
     @Getter @Setter @Delegate
-    private IslandContext context;
+    private IslandData context;
 
     @Getter @Setter
     private Membership membership;
@@ -19,13 +19,14 @@ public class Island {
     @Getter @Setter
     private IslandSettings settings;
 
-    public Island(IslandContext context, Membership membership, IslandSettings settings){
+    public Island(IslandData context, Membership membership, IslandSettings settings){
         this.islandId = IslandId.generateIslandId();
         this.context = context;
         this.membership = membership;
+        this.settings = settings;
     }
 
-    public Island(IslandId islandId, IslandContext context, Membership membership, IslandSettings settings){
+    public Island(IslandId islandId, IslandData context, Membership membership, IslandSettings settings){
         this.islandId = islandId;
         this.context = context;
         this.membership = membership;

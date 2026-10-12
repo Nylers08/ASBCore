@@ -18,6 +18,7 @@ public class PlayerIslandData {
 
 
     public PlayerIslandData(IslandOwnership islandOwnership, Membership membership, LevelSystem levelSystem) {
+
         this.islandOwnership = islandOwnership;
         this.membership = membership;
         this.levelSystem = levelSystem;

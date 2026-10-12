@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
 
-public class IslandContext{
+public class IslandData {
 
     @Getter @Setter
     private Clipboard clipboard;
@@ -17,7 +17,7 @@ public class IslandContext{
     @Getter @Setter
     private Location origin;
 
-    public IslandContext(Clipboard clipboard, IslandRegion region, Location origin) {
+    public IslandData(Clipboard clipboard, IslandRegion region, Location origin) {
         this.clipboard = clipboard;
         this.region = region;
         this.origin = origin;

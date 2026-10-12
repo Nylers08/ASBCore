@@ -1,4 +1,4 @@
-package ariol.nylers.asbcore.core.playerIsland.services.clipboard;
+package ariol.nylers.asbcore.core.playerIsland.services.clipboard.fawe;
 
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;

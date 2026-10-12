@@ -17,6 +17,10 @@ public class IslandOwnership {
         islands.put(island.getOrigin().getWorld(), island);
     }
 
+    public void addAll(Collection<Island> islands){
+        islands.forEach(this::add);
+    }
+
     public void remove(World world){
         islands.remove(world);
     }

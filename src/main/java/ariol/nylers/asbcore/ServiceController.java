@@ -1,6 +1,6 @@
 package ariol.nylers.asbcore;
 
-import ariol.nylers.asbcore.core.playerIsland.services.clipboard.ClipboardPlacer;
+import ariol.nylers.asbcore.core.playerIsland.services.clipboard.fawe.ClipboardPlacer;
 import ariol.nylers.asbcore.core.playerIsland.services.island.cache.IslandCache;
 import ariol.nylers.asbcore.core.playerIsland.services.island.cache.IslandCacheController;
 import ariol.nylers.asbcore.core.playerIsland.services.island.cache.IslandCacheControllerImpl;

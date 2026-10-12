@@ -1,5 +1,6 @@
-package ariol.nylers.asbcore.core.playerIsland.services.clipboard;
+package ariol.nylers.asbcore.core.playerIsland.services.clipboard.fawe;
 
+import ariol.nylers.asbcore.core.playerIsland.services.clipboard.ASBClipboardException;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;

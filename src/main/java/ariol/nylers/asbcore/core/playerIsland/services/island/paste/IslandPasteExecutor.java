@@ -1,7 +1,7 @@
 package ariol.nylers.asbcore.core.playerIsland.services.island.paste;
 
 import ariol.nylers.asbcore.core.playerIsland.pojo.island.Island;
-import ariol.nylers.asbcore.core.playerIsland.services.clipboard.ClipboardPlacer;
+import ariol.nylers.asbcore.core.playerIsland.services.clipboard.fawe.ClipboardPlacer;
 import ariol.nylers.asbcore.core.playerIsland.services.region.placer.IslandRegionPlaceData;
 import ariol.nylers.asbcore.core.playerIsland.services.region.placer.IslandRegionPlacementContext;
 import ariol.nylers.asbcore.core.playerIsland.services.region.placer.PrivatePlacer;
