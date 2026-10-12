@@ -2,9 +2,9 @@ package ariol.nylers.asbcore.core.island.playerIsland;
 
 import ariol.nylers.asbcore.core.island.members.Membership;
 import ariol.nylers.asbcore.core.island.region.IslandRegion;
-import ariol.nylers.asbcore.core.pos.IslandLocalLocation;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import lombok.Getter;
+import lombok.experimental.Delegate;
 import org.bukkit.World;
 
 public class Island {
@@ -12,34 +12,24 @@ public class Island {
     @Getter
     private IslandId islandId;
 
-    @Getter
-    private Clipboard clipboard;
-
-    @Getter
-    private IslandRegion region;
+    @Getter @Delegate
+    private IslandContext context;
 
     @Getter
     private Membership membership;
 
-    @Getter
-    private World world;
-
 
     public Island(){}
 
-    public Island(Clipboard clipboard, IslandRegion region, Membership membership, World world){
+    public Island(IslandContext context, Membership membership){
         this.islandId = IslandId.generateIslandId();
-        this.clipboard = clipboard;
-        this.region = region;
+        this.context = context;
         this.membership = membership;
-        this.world = world;
     }
 
-    public Island(IslandId islandId, Clipboard clipboard, IslandRegion region, Membership membership, World world){
+    public Island(IslandId islandId, IslandContext context, Membership membership){
         this.islandId = islandId;
-        this.clipboard = clipboard;
-        this.region = region;
+        this.context = context;
         this.membership = membership;
-        this.world = world;
     }
 }

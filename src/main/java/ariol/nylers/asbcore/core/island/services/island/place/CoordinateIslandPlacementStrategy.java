@@ -21,7 +21,7 @@ public class CoordinateIslandPlacementStrategy implements IslandPlacer {
 
     @Override
     public CompletableFuture<IslandPlacementResult> place(Island island) {
-        Location location = posResolver.resolve(island.getWorld());
+        Location location = posResolver.resolve(island.getOrigin().getWorld());
         CompletableFuture<Void> pasteFuture = islandPasteExecutor.place(island, location);
         return pasteFuture.thenApply(ignored->
                 new IslandPlacementResult(island, location)
