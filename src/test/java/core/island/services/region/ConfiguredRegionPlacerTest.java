@@ -1,12 +1,12 @@
 package core.island.services.region;
 
-import ariol.nylers.asbcore.core.island.members.Membership;
-import ariol.nylers.asbcore.core.island.services.region.configurator.PrivateConfigurator;
-import ariol.nylers.asbcore.core.island.services.region.configurator.RegionWithMembership;
-import ariol.nylers.asbcore.core.island.services.region.placer.ConfiguredRegionPlacer;
-import ariol.nylers.asbcore.core.island.services.region.placer.IslandRegionPlaceData;
-import ariol.nylers.asbcore.core.island.services.region.placer.IslandRegionPlacementContext;
-import ariol.nylers.asbcore.core.island.services.region.placer.PrivatePlacer;
+import ariol.nylers.asbcore.core.playerIsland.pojo.members.Membership;
+import ariol.nylers.asbcore.core.playerIsland.services.region.configurator.PrivateConfigurator;
+import ariol.nylers.asbcore.core.playerIsland.services.region.configurator.RegionWithMembership;
+import ariol.nylers.asbcore.core.playerIsland.services.region.placer.ConfiguredRegionPlacer;
+import ariol.nylers.asbcore.core.playerIsland.services.region.placer.IslandRegionPlaceData;
+import ariol.nylers.asbcore.core.playerIsland.services.region.placer.IslandRegionPlacementContext;
+import ariol.nylers.asbcore.core.playerIsland.services.region.placer.PrivatePlacer;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

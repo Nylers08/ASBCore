@@ -1,27 +1,24 @@
 package ariol.nylers.asbcore;
 
-import ariol.nylers.asbcore.core.island.services.clipboard.ClipboardPlacer;
-import ariol.nylers.asbcore.core.island.services.island.cache.IslandCache;
-import ariol.nylers.asbcore.core.island.services.island.cache.IslandCacheController;
-import ariol.nylers.asbcore.core.island.services.island.cache.IslandCacheControllerImpl;
-import ariol.nylers.asbcore.core.island.services.island.cache.IslandLocationRegistry;
-import ariol.nylers.asbcore.core.island.services.island.paste.IslandPasteExecutor;
-import ariol.nylers.asbcore.core.island.services.island.place.CoordinateIslandPlacementStrategy;
-import ariol.nylers.asbcore.core.island.services.island.place.IslandPlacer;
-import ariol.nylers.asbcore.core.island.services.island.place.IslandPlacerImpl;
-import ariol.nylers.asbcore.core.island.services.posResolver.IslandPosResolver;
-import ariol.nylers.asbcore.core.island.services.posResolver.LinerPosResolver;
-import ariol.nylers.asbcore.core.island.services.posResolver.PosResolverByPlayer;
-import ariol.nylers.asbcore.core.island.services.region.configurator.FlagPrivateConfigurator;
-import ariol.nylers.asbcore.core.island.services.region.configurator.PrivateConfigurator;
-import ariol.nylers.asbcore.core.island.services.region.configurator.RegionWithMembership;
-import ariol.nylers.asbcore.core.island.services.region.placer.*;
+import ariol.nylers.asbcore.core.playerIsland.services.clipboard.ClipboardPlacer;
+import ariol.nylers.asbcore.core.playerIsland.services.island.cache.IslandCache;
+import ariol.nylers.asbcore.core.playerIsland.services.island.cache.IslandCacheController;
+import ariol.nylers.asbcore.core.playerIsland.services.island.cache.IslandCacheControllerImpl;
+import ariol.nylers.asbcore.core.playerIsland.services.island.cache.IslandLocationRegistry;
+import ariol.nylers.asbcore.core.playerIsland.services.island.paste.IslandPasteExecutor;
+import ariol.nylers.asbcore.core.playerIsland.services.island.place.CoordinateIslandPlacementStrategy;
+import ariol.nylers.asbcore.core.playerIsland.services.island.place.IslandPlacer;
+import ariol.nylers.asbcore.core.playerIsland.services.island.place.IslandPlacerImpl;
+import ariol.nylers.asbcore.core.playerIsland.services.posResolver.IslandPosResolver;
+import ariol.nylers.asbcore.core.playerIsland.services.posResolver.LinerPosResolver;
+import ariol.nylers.asbcore.core.playerIsland.services.region.configurator.FlagPrivateConfigurator;
+import ariol.nylers.asbcore.core.playerIsland.services.region.configurator.PrivateConfigurator;
+import ariol.nylers.asbcore.core.playerIsland.services.region.configurator.RegionWithMembership;
+import ariol.nylers.asbcore.core.playerIsland.services.region.placer.*;
 import ariol.nylers.asbcore.core.profile.ProfileModule;
-import ariol.nylers.asbcore.core.island.services.region.MemberPermParser;
+import ariol.nylers.asbcore.core.playerIsland.services.region.MemberPermParser;
 import lombok.Getter;
 import org.bukkit.World;
-
-import java.util.UUID;
 
 public class ServiceController {
 

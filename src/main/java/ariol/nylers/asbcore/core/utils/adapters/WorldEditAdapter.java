@@ -1,6 +1,6 @@
 package ariol.nylers.asbcore.core.utils.adapters;
 
-import ariol.nylers.asbcore.core.island.region.IslandRegion;
+import ariol.nylers.asbcore.core.playerIsland.pojo.region.IslandRegion;
 import ariol.nylers.asbcore.core.pos.IslandLocalLocation;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;

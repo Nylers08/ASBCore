@@ -1,9 +1,9 @@
 package core.island.services.island;
 
-import ariol.nylers.asbcore.core.island.playerIsland.Island;
-import ariol.nylers.asbcore.core.island.services.clipboard.ClipboardPlacer;
-import ariol.nylers.asbcore.core.island.services.island.paste.IslandPasteExecutor;
-import ariol.nylers.asbcore.core.island.services.region.placer.ConfiguredRegionPlacer;
+import ariol.nylers.asbcore.core.playerIsland.pojo.island.Island;
+import ariol.nylers.asbcore.core.playerIsland.services.clipboard.ClipboardPlacer;
+import ariol.nylers.asbcore.core.playerIsland.services.island.paste.IslandPasteExecutor;
+import ariol.nylers.asbcore.core.playerIsland.services.region.placer.ConfiguredRegionPlacer;
 import org.bukkit.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

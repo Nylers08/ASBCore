@@ -1,12 +1,13 @@
 package ariol.nylers.asbcore.core.commands;
 
 import ariol.nylers.asbcore.ServiceController;
-import ariol.nylers.asbcore.core.island.members.Member;
-import ariol.nylers.asbcore.core.island.members.MemberRole;
-import ariol.nylers.asbcore.core.island.members.Membership;
-import ariol.nylers.asbcore.core.island.playerIsland.Island;
-import ariol.nylers.asbcore.core.island.playerIsland.IslandContext;
-import ariol.nylers.asbcore.core.island.region.IslandRegion;
+import ariol.nylers.asbcore.core.playerIsland.pojo.island.IslandSettings;
+import ariol.nylers.asbcore.core.playerIsland.pojo.members.Member;
+import ariol.nylers.asbcore.core.playerIsland.pojo.members.MemberRole;
+import ariol.nylers.asbcore.core.playerIsland.pojo.members.Membership;
+import ariol.nylers.asbcore.core.playerIsland.pojo.island.Island;
+import ariol.nylers.asbcore.core.playerIsland.pojo.island.IslandContext;
+import ariol.nylers.asbcore.core.playerIsland.pojo.region.IslandRegion;
 import ariol.nylers.asbcore.core.pos.IslandLocalLocation;
 import ariol.nylers.asbcore.core.profile.ProfileId;
 import ariol.nylers.asbcore.core.profile.ProfileModule;
@@ -64,7 +65,7 @@ public class ASBCommand implements CommandExecutor {
         }
 
         IslandContext context = new IslandContext(clipboard, region, origin);
-        Island island = new Island(context, membership);
+        Island island = new Island(context, membership, new IslandSettings());
 
         serviceController.getIslandPlacer().place(island);
 

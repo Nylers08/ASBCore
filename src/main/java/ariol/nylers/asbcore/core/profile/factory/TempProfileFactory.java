@@ -1,7 +1,7 @@
 package ariol.nylers.asbcore.core.profile.factory;
 
 import ariol.nylers.asbcore.core.exception.ASBPlayerOffline;
-import ariol.nylers.asbcore.core.island.playerIsland.PlayerIsland;
+import ariol.nylers.asbcore.core.playerIsland.pojo.PlayerIsland;
 import ariol.nylers.asbcore.core.profile.MetaProfile;
 import ariol.nylers.asbcore.core.profile.Profile;
 import ariol.nylers.asbcore.core.profile.ProfileData;
