@@ -17,6 +17,7 @@ import ariol.nylers.asbcore.core.playerIsland.services.region.configurator.Regio
 import ariol.nylers.asbcore.core.playerIsland.services.region.placer.*;
 import ariol.nylers.asbcore.core.profile.ProfileModule;
 import ariol.nylers.asbcore.core.playerIsland.services.region.MemberPermParser;
+import io.neris.NGui.core.services.MenuServiceController;
 import lombok.Getter;
 import org.bukkit.World;
 
@@ -50,8 +51,12 @@ public class ServiceController {
             new IslandPlacerImpl(cordIslandPlacementStrategy, islandCacheController);
 
 
-    @Getter private io.neris.NGui.core.services.ServiceController menuController;
+    @Getter private MenuServiceController menuController;
 
     public ServiceController() {
+    }
+
+    public ServiceController(MenuServiceController menuController){
+        this.menuController = menuController;
     }
 }

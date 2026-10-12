@@ -1,6 +1,7 @@
 package ariol.nylers.asbcore.core.commands;
 
 import ariol.nylers.asbcore.ServiceController;
+import ariol.nylers.asbcore.core.gui.alpha.menu.AlphaMenuFactory;
 import ariol.nylers.asbcore.core.playerIsland.pojo.island.IslandSettings;
 import ariol.nylers.asbcore.core.playerIsland.pojo.members.Member;
 import ariol.nylers.asbcore.core.playerIsland.pojo.members.MemberRole;
@@ -16,6 +17,9 @@ import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardReader;
+import io.neris.NGui.core.gui.button.controller.renderers.ButtonRenderContext;
+import io.neris.NGui.core.gui.menu.Menu;
+import io.neris.NGui.core.gui.menu.services.MenuFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -44,30 +48,35 @@ public class ASBCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        serviceController.getProfileModule().getMetaProfileInit().init(player.getUniqueId());
-        ProfileModule profileModule = serviceController.getProfileModule();
-        MetaProfileCacheController metaProfileCacheController = profileModule.getMetaProfileCacheController();
-        ProfileId profileId = metaProfileCacheController.getSelectedMetaProfile(player.getUniqueId()).getProfileId();
+        ButtonRenderContext renderContext = new ButtonRenderContext(player.getUniqueId());
+        MenuFactory<ButtonRenderContext> menuFactory = new AlphaMenuFactory();
+        Menu menu = menuFactory.create(renderContext);
+        serviceController.getMenuController().getPlayerMenuOpener().open(player, menu);
 
-        IslandLocalLocation minPos = new IslandLocalLocation( -10, -999, -10);
-        IslandLocalLocation maxPos = new IslandLocalLocation( 10, 999, 10);
-        IslandRegion region = new IslandRegion(minPos, maxPos);
-        Location origin = player.getLocation();
-
-        Member member = new Member(profileId, MemberRole.MEMBER);
-        Membership membership = new Membership(member);
-
-        Clipboard clipboard;
-        try {
-            clipboard = loadClipboard(new File("F:\\Neris\\servers\\hub\\plugins\\FastAsyncWorldEdit\\schematics\\test.schem"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        IslandContext context = new IslandContext(clipboard, region, origin);
-        Island island = new Island(context, membership, new IslandSettings());
-
-        serviceController.getIslandPlacer().place(island);
+//        serviceController.getProfileModule().getMetaProfileInit().init(player.getUniqueId());
+//        ProfileModule profileModule = serviceController.getProfileModule();
+//        MetaProfileCacheController metaProfileCacheController = profileModule.getMetaProfileCacheController();
+//        ProfileId profileId = metaProfileCacheController.getSelectedMetaProfile(player.getUniqueId()).getProfileId();
+//
+//        IslandLocalLocation minPos = new IslandLocalLocation( -10, -999, -10);
+//        IslandLocalLocation maxPos = new IslandLocalLocation( 10, 999, 10);
+//        IslandRegion region = new IslandRegion(minPos, maxPos);
+//        Location origin = player.getLocation();
+//
+//        Member member = new Member(profileId, MemberRole.MEMBER);
+//        Membership membership = new Membership(member);
+//
+//        Clipboard clipboard;
+//        try {
+//            clipboard = loadClipboard(new File("F:\\Neris\\servers\\hub\\plugins\\FastAsyncWorldEdit\\schematics\\test.schem"));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        IslandContext context = new IslandContext(clipboard, region, origin);
+//        Island island = new Island(context, membership, new IslandSettings());
+//
+//        serviceController.getIslandPlacer().place(island);
 
         return true;
     }
