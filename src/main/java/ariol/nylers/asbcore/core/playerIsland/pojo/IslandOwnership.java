@@ -6,12 +6,10 @@ import org.bukkit.World;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class IslandOwnership {
 
     private final Map<World, Island> islands = new HashMap<>();
-
 
     public void add(Island island){
         islands.put(island.getOrigin().getWorld(), island);

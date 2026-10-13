@@ -31,7 +31,7 @@ public class BaseIslandFactory implements IslandFactory<IslandCreateContext>{
         Optional<Clipboard> optClipboard = clipboardProvider.find(createContext.getClipboardId());
 
         if(optClipboard.isEmpty()){
-            return null;
+            throw new RuntimeException("Не удалось загрузить Clipboard, при создании острова");
         }
 
         IslandSettings islandSettings = islandSettingsFactory.create();
@@ -39,6 +39,6 @@ public class BaseIslandFactory implements IslandFactory<IslandCreateContext>{
         Location location = new Location(createContext.getWorld(), 0, 0 ,0);
         IslandData islandData = new IslandData(optClipboard.get(), islandRegion, location);
 
-        return new Island(islandData, null, islandSettings);
+        return new Island(islandData, createContext.getMembership(), islandSettings);
     }
 }

@@ -4,6 +4,8 @@ import ariol.nylers.asbcore.core.playerIsland.pojo.island.presets.IslandPlacemen
 import ariol.nylers.asbcore.core.profile.ProfileId;
 import lombok.Getter;
 
+import java.util.Objects;
+
 public class PlayerIslandFactoryContext {
 
     @Getter
@@ -13,7 +15,7 @@ public class PlayerIslandFactoryContext {
     private final IslandPlacementPreset preset;
 
     public PlayerIslandFactoryContext(ProfileId profileId, IslandPlacementPreset preset) {
-        this.profileId = profileId;
-        this.preset = preset;
+        this.profileId = Objects.requireNonNull(profileId, "ProfileId cannot be null");
+        this.preset = Objects.requireNonNull(preset, "IslandPlacementPreset cannot be null");
     }
 }

@@ -1,11 +1,11 @@
 package ariol.nylers.asbcore.core.playerIsland.services;
 
 import ariol.nylers.asbcore.core.playerIsland.pojo.island.IslandSettings;
-import ariol.nylers.asbcore.core.playerIsland.pojo.island.presets.IslandPlacementPreset;
 import ariol.nylers.asbcore.core.playerIsland.services.clipboard.provider.ClipboardProvider;
 import ariol.nylers.asbcore.core.playerIsland.services.clipboard.provider.TestClipboardProvider;
 import ariol.nylers.asbcore.core.playerIsland.services.island.factory.*;
 import ariol.nylers.asbcore.core.playerIsland.services.islandOwnership.BaseIslandOwnershipFactory;
+import ariol.nylers.asbcore.core.playerIsland.services.islandOwnership.IslandOwnershipCreateContext;
 import ariol.nylers.asbcore.core.playerIsland.services.islandOwnership.IslandOwnershipFactory;
 import ariol.nylers.asbcore.core.playerIsland.services.levelSystem.LevelSystemFactory;
 import ariol.nylers.asbcore.core.playerIsland.services.levelSystem.TestLevelSystemFactory;
@@ -35,7 +35,7 @@ public class PlayerIslandFactoriesSetup {
             new BaseIslandFactory(clipboardProvider, settingsFactory, islandRegionFactory);
 
     @Getter
-    private final IslandOwnershipFactory<IslandPlacementPreset> islandOwnershipFactory = new BaseIslandOwnershipFactory(islandFactory);
+    private final IslandOwnershipFactory<IslandOwnershipCreateContext> islandOwnershipFactory = new BaseIslandOwnershipFactory(islandFactory);
 
 
     @Getter

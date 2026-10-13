@@ -30,5 +30,6 @@ public class Island {
         this.islandId = islandId;
         this.context = context;
         this.membership = membership;
+        this.settings = settings;
     }
 }

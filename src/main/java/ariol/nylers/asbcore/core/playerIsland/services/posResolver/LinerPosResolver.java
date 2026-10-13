@@ -15,7 +15,7 @@ public class LinerPosResolver implements IslandPosResolver<World>{
     public Location resolve(World world) {
         Location lastLocation = getLastLocation(world);
         lastLocation.add(offsetX,0,0);
-        return lastLocation;
+        return new Location(lastLocation.getWorld(), lastLocation.getX(), lastLocation.getY(), lastLocation.getZ());
     }
 
     private Location getLastLocation(World world){

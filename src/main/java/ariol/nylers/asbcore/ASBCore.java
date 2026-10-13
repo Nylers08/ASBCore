@@ -22,6 +22,7 @@ public final class ASBCore extends JavaPlugin {
 
         if (plugin == null) {
             getLogger().severe("Плагин NGui не найден!");
+            throw new RuntimeException("Не удалось найти плагин NGui");
         } else {
             getLogger().info("Найден плагин: " + plugin.getName());
             getLogger().info("Класс: " + plugin.getClass().getName());
@@ -31,6 +32,7 @@ public final class ASBCore extends JavaPlugin {
                 nGui = nguiInstance;
             } else {
                 getLogger().severe("Найден NGui, но класс не совпадает!");
+                throw new RuntimeException("Найден NGui, но класс не совпадает!");
             }
         }
 
