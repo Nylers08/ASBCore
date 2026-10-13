@@ -4,7 +4,8 @@ import ariol.nylers.asbcore.core.playerIsland.pojo.IslandOwnership;
 import ariol.nylers.asbcore.core.playerIsland.pojo.PlayerIsland;
 import ariol.nylers.asbcore.core.playerIsland.pojo.island.Island;
 import ariol.nylers.asbcore.core.playerIsland.services.island.place.IslandPlacer;
-import ariol.nylers.asbcore.core.playerIsland.services.playerIsland.cache.PlayerIslandCacheController;
+import ariol.nylers.asbcore.core.playerIsland.services.playerIsland.cache.PlayerIslandCache;
+import ariol.nylers.asbcore.core.playerIsland.services.playerIsland.cache.PlayerIslandPlacedRegistry;
 
 import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
@@ -12,11 +13,11 @@ import java.util.concurrent.CompletableFuture;
 public class PlayerIslandPlacer {
 
     private final IslandPlacer islandPlacer;
-    private final PlayerIslandCacheController cacheController;
+    private final PlayerIslandPlacedRegistry registry;
 
-    public PlayerIslandPlacer(IslandPlacer islandPlacer, PlayerIslandCacheController cacheController) {
+    public PlayerIslandPlacer(IslandPlacer islandPlacer, PlayerIslandPlacedRegistry registry) {
         this.islandPlacer = islandPlacer;
-        this.cacheController = cacheController;
+        this.registry = registry;
     }
 
     public CompletableFuture<Void> paste(PlayerIsland playerIsland){
@@ -38,6 +39,6 @@ public class PlayerIslandPlacer {
     }
 
     private void cache(PlayerIsland playerIsland){
-        cacheController.cache(playerIsland);
+        registry.register(playerIsland);
     }
 }

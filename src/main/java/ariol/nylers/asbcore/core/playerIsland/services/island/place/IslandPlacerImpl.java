@@ -1,18 +1,18 @@
 package ariol.nylers.asbcore.core.playerIsland.services.island.place;
 
 import ariol.nylers.asbcore.core.playerIsland.pojo.island.Island;
-import ariol.nylers.asbcore.core.playerIsland.services.island.cache.IslandCacheController;
+import ariol.nylers.asbcore.core.playerIsland.services.island.cache.IslandLocationRegistry;
 
 import java.util.concurrent.CompletableFuture;
 
 public class IslandPlacerImpl implements IslandPlacer{
 
     private final IslandPlacer delegator;
-    private final IslandCacheController cacheController;
+    private final IslandLocationRegistry locationRegistry;
 
-    public IslandPlacerImpl(IslandPlacer delegator, IslandCacheController cacheController) {
+    public IslandPlacerImpl(IslandPlacer delegator, IslandLocationRegistry locationRegistry) {
         this.delegator = delegator;
-        this.cacheController = cacheController;
+        this.locationRegistry = locationRegistry;
     }
 
     @Override
@@ -25,6 +25,6 @@ public class IslandPlacerImpl implements IslandPlacer{
     }
 
     private void cache(IslandPlacementResult result){
-        cacheController.cacheWithLocation(result.island(), result.location());
+        locationRegistry.register(result.island(), result.location());
     }
 }

@@ -19,7 +19,7 @@ public class TempProfileFactory implements ProfileFactory<UUID>{
         MetaProfile metaData = new MetaProfile(
                 ProfileId.randomId(),
                 playerId,
-                "src/main/test",
+                "test",
                 Duration.ZERO,
                 0
         );

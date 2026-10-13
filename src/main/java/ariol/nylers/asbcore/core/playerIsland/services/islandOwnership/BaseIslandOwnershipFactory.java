@@ -33,6 +33,7 @@ public class BaseIslandOwnershipFactory implements IslandOwnershipFactory<Island
         for (Map.Entry<World, ClipboardId> entry : preset.entrySet()){
             IslandCreateContext createContext = new IslandCreateContext(entry.getKey(), entry.getValue());
             Island island = islandFactory.create(createContext);
+            islands.add(island);
         }
         return islands;
     }

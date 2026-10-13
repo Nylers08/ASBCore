@@ -4,7 +4,7 @@ import ariol.nylers.asbcore.core.playerIsland.pojo.island.presets.IslandPlacemen
 import ariol.nylers.asbcore.core.profile.ProfileId;
 import lombok.Getter;
 
-public class PlayerIslandCreateContext {
+public class PlayerIslandFactoryContext {
 
     @Getter
     private final ProfileId profileId;
@@ -12,7 +12,7 @@ public class PlayerIslandCreateContext {
     @Getter
     private final IslandPlacementPreset preset;
 
-    public PlayerIslandCreateContext(ProfileId profileId, IslandPlacementPreset preset) {
+    public PlayerIslandFactoryContext(ProfileId profileId, IslandPlacementPreset preset) {
         this.profileId = profileId;
         this.preset = preset;
     }

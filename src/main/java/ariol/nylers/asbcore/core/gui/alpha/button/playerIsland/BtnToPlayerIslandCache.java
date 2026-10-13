@@ -1,6 +1,6 @@
-package ariol.nylers.asbcore.core.gui.alpha.button;
+package ariol.nylers.asbcore.core.gui.alpha.button.playerIsland;
 
-import ariol.nylers.asbcore.core.gui.alpha.menu.ProfileMenuFactory;
+import ariol.nylers.asbcore.core.gui.alpha.menu.playerIsland.PlayerIslandCacheMenu;
 import io.neris.NGui.core.gui.button.ClickEventContext;
 import io.neris.NGui.core.gui.button.button.OpenMenuFactoryButton;
 import io.neris.NGui.core.gui.button.controller.ButtonController;
@@ -13,13 +13,15 @@ import io.neris.NGui.core.services.StaticMenuServiceController;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 
-public class BtnToProfileMenu extends OpenMenuFactoryButton {
+public class BtnToPlayerIslandCache extends OpenMenuFactoryButton {
 
-    public BtnToProfileMenu(ButtonRenderContext renderContext) {
+    public BtnToPlayerIslandCache(ButtonRenderContext renderContext) {
 
         ButtonController btnController = buildController();
         PlayerMenuOpener menuOpener = getMenuOpener();
         MenuFactory<ClickEventContext> menuFactory = buildMenuFactory();
+
+        btnController.addAction(new CancelPutAction());
 
         super(btnController, renderContext, menuOpener, menuFactory);
     }
@@ -27,7 +29,7 @@ public class BtnToProfileMenu extends OpenMenuFactoryButton {
 
     private static ButtonController buildController(){
         ButtonController btnController = new SimpleBtnController(
-                Material.PLAYER_HEAD, 1, Component.text("Profile"));
+                Material.GRASS_BLOCK, 1, Component.text("PlayerIsland cache"));
         btnController.addAction(new CancelPutAction());
 
         return btnController;
@@ -38,6 +40,6 @@ public class BtnToProfileMenu extends OpenMenuFactoryButton {
     }
 
     private static MenuFactory<ClickEventContext> buildMenuFactory(){
-        return new ProfileMenuFactory();
+        return new PlayerIslandCacheMenu();
     }
 }

@@ -1,6 +1,6 @@
-package ariol.nylers.asbcore.core.gui.alpha.button;
+package ariol.nylers.asbcore.core.gui.alpha.button.playerIsland;
 
-import ariol.nylers.asbcore.core.gui.alpha.menu.PlayerIslandMenuFactory;
+import ariol.nylers.asbcore.core.gui.alpha.menu.playerIsland.PlayerIslandMainMenuFactory;
 import io.neris.NGui.core.gui.button.ClickEventContext;
 import io.neris.NGui.core.gui.button.button.OpenMenuFactoryButton;
 import io.neris.NGui.core.gui.button.controller.ButtonController;
@@ -14,13 +14,15 @@ import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 
 
-public class BtnToPlayerIsland extends OpenMenuFactoryButton {
+public class BtnToPlayerIslandMain extends OpenMenuFactoryButton {
 
-    public BtnToPlayerIsland(ButtonRenderContext renderContext) {
+    public BtnToPlayerIslandMain(ButtonRenderContext renderContext) {
 
         ButtonController btnController = buildController();
         PlayerMenuOpener menuOpener = getMenuOpener();
         MenuFactory<ClickEventContext> menuFactory = buildMenuFactory();
+
+        btnController.addAction(new CancelPutAction());
 
         super(btnController, renderContext, menuOpener, menuFactory);
     }
@@ -39,6 +41,6 @@ public class BtnToPlayerIsland extends OpenMenuFactoryButton {
     }
 
     private static MenuFactory<ClickEventContext> buildMenuFactory(){
-        return new PlayerIslandMenuFactory();
+        return new PlayerIslandMainMenuFactory();
     }
 }

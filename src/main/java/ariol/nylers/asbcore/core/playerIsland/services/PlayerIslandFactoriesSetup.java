@@ -10,10 +10,9 @@ import ariol.nylers.asbcore.core.playerIsland.services.islandOwnership.IslandOwn
 import ariol.nylers.asbcore.core.playerIsland.services.levelSystem.LevelSystemFactory;
 import ariol.nylers.asbcore.core.playerIsland.services.levelSystem.TestLevelSystemFactory;
 import ariol.nylers.asbcore.core.playerIsland.services.membership.BaseMembershipFactory;
-import ariol.nylers.asbcore.core.playerIsland.services.membership.MembershipCreateContext;
 import ariol.nylers.asbcore.core.playerIsland.services.membership.MembershipFactory;
 import ariol.nylers.asbcore.core.playerIsland.services.playerIsland.factory.BasePlayerIslandFactory;
-import ariol.nylers.asbcore.core.playerIsland.services.playerIsland.factory.PlayerIslandCreateContext;
+import ariol.nylers.asbcore.core.playerIsland.services.playerIsland.factory.PlayerIslandFactoryContext;
 import ariol.nylers.asbcore.core.playerIsland.services.playerIsland.factory.PlayerIslandFactory;
 import ariol.nylers.asbcore.core.playerIsland.services.region.factory.BaseIslandRegionFactory;
 import ariol.nylers.asbcore.core.playerIsland.services.region.factory.IslandRegionFactory;
@@ -48,6 +47,6 @@ public class PlayerIslandFactoriesSetup {
 
 
     @Getter
-    private final PlayerIslandFactory<PlayerIslandCreateContext> playerIslandFactory =
+    private final PlayerIslandFactory<PlayerIslandFactoryContext> playerIslandFactory =
             new BasePlayerIslandFactory(islandOwnershipFactory, membershipFactory, levelSystemFactory);
 }

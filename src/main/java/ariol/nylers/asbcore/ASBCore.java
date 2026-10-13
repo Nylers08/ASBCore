@@ -35,6 +35,7 @@ public final class ASBCore extends JavaPlugin {
         }
 
         serviceController = new ServiceController(nGui.getMenuServiceController());
+        StaticServiceController.init(serviceController);
 
 
         getCommand("isop").setExecutor(new ASBCommand(serviceController));
